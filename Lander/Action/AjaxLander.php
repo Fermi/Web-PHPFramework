@@ -2,11 +2,11 @@
 require_once dirname(dirname(__FILE__)).'/Config/AjaxLanderConfig.php';
 
 require_once TOOL_MODULE.'/Param/ParamManager.class.php';
-require_once LOADER_MODULE.'/Page/PageLoader.class.php';
+require_once LOADER_MODULE.'/Action/ActionLoader.class.php';
 
-$loader = new PageLoader();
+$loader = new ActionLoader();
 if(session_start()){
-    $loader->AjaxLoadPage(ParamManager::getGet('module_name'),ParamManager::getGet('page_name'));
+    $loader->AjaxLoadAction(ParamManager::getGet('module_name'),ParamManager::getGet('action_name'));
 } else {
     echo "用户Session出现错误!";
 }
